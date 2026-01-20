@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Student by USN</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -14,291 +12,120 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins'; 
-            font-size: 13px;
-            margin: 0;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+            font-family: 'Poppins'; font-size:13px;
         }
         table {
             border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            width: 50%;
+            margin: 20px auto;
+            /* font-family: Poppins ; */
+            white-space: nowrap; /* Prevent text wrapping */
+                overflow: hidden; /* Hide overflow text */
+                text-overflow: ellipsis;
         }
         th, td {
             border: 2px solid black;
-            padding: 8px 6px;
+            padding: 6px;
             text-align: left;
-            vertical-align: middle;
         }
         th {
             background-color: #C2DFFF;
         }
-        .image-row img {
-            width: 100%;
-            height: auto;
-            max-height: 80px;
+        @media screen and (max-width: 700px) {
+            table {
+                width: 90%;
+            }
         }
-        .title-row {
-            font-size: 18px;
-            font-weight: bold;
-            color: #357EC7;
+        @media (max-width: 600px) {
+        h2 {
+            font-size: 16px;
             text-align: center;
         }
-        select, input[type="text"], input[type="date"] {
-            width: 100%;
-            height: 40px;
-            font-family: 'Poppins', Georgia, serif;
-            font-size: 13px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 0 8px;
+        h5 {
+            white-space: nowrap;
+            overflow: hidden;
+            /* text-overflow: ellipsis; */
+            text-align: center;
+            margin-left: 0px;
+            max-width: calc(100%);
         }
-        .form-row td {
-            padding: 10px 6px;
-        }
-        .button-row {
-            text-align: right;
-        }
-        input[type="submit"], input[type="reset"] {
-            width: 90px;
-            height: 35px;
-            font-family: 'Poppins';
-            font-size: 13px;
-            border: 1px solid #357EC7;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        input[type="submit"] {
-            background-color: #357EC7;
-            color: white;
-        }
-        input[type="reset"] {
-            background-color: white;
-            color: #357EC7;
-        }
-        input[type="submit"]:hover {
-            background-color: #285e9f;
-        }
-        input[type="reset"]:hover {
-            background-color: #f0f0f0;
-        }
-        footer table {
-            width: 100%;
-            color: #0000A5;
-            background-color: #C2DFFF;
-            margin-top: 20px;
-        }
-        footer td {
+        h3{
             font-size: 14px;
-            height: 30px;
+            margin: 0 10px;
             text-align: center;
-            border: none;
-            padding: 10px;
         }
-
-        /* Mobile Responsiveness - Enhanced existing media queries [web:9][web:10] */
-        @media screen and (max-width: 768px) {
-            body {
-                font-size: 12px;
-                padding: 5px;
-            }
-            table {
-                width: 100%;
-                font-size: 11px;
-            }
-            th, td {
-                padding: 6px 4px;
-            }
-            select, input[type="text"], input[type="date"] {
-                height: 35px;
-                font-size: 12px;
-            }
-            .image-row img {
-                max-height: 60px;
-            }
-            .title-row {
-                font-size: 16px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            body {
-                padding: 0;
-            }
-            .container {
-                padding: 10px;
-            }
-            table {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-                border: 1px solid black;
-                padding: 10px 8px;
-                text-align: left !important;
-                white-space: normal;
-                word-wrap: break-word;
-            }
-            th {
-                background-color: #C2DFFF;
-                font-weight: bold;
-                position: relative;
-                padding-right: 30px;
-            }
-            th::after {
-                content: ":";
-                position: absolute;
-                right: 10px;
-                font-weight: normal;
-            }
-            .image-row td, .title-row td {
-                border: none;
-                text-align: center;
-            }
-            .image-row img {
-                max-height: 50px;
-            }
-            .title-row {
-                font-size: 14px;
-                padding: 10px;
-            }
-            .form-row td:nth-child(1),
-            .form-row td:nth-child(2),
-            .form-row td:nth-child(3),
-            .form-row td:nth-child(4) {
-                border-top: 2px solid black;
-            }
-            .form-row th {
-                border-right: none;
-            }
-            .button-row td {
-                padding: 15px 10px;
-                border-top: 2px solid black;
-            }
-            .button-row input[type="submit"],
-            .button-row input[type="reset"] {
-                width: 45%;
-                margin: 0 2.5% 10px;
-                box-sizing: border-box;
-            }
-            h2 {
-                font-size: 16px;
-                text-align: center;
-            }
-            h5 {
-                white-space: nowrap;
-                overflow: hidden;
-                text-align: center;
-                margin-left: 0;
-                max-width: 100%;
-            }
-            h3 {
-                font-size: 14px;
-                margin: 0 10px;
-                text-align: center;
-            }
-        }
-
-        @media screen and (max-width: 400px) {
-            .title-row {
-                font-size: 13px;
-            }
-            th, td {
-                padding: 8px 6px;
-                font-size: 11px;
-            }
-            select, input[type="text"], input[type="date"] {
-                font-size: 11px;
-                height: 32px;
-            }
-        }
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <table>
-            <tbody>
-                <tr>
-                    <td colspan="4" class="image-row"><img src="images/bg1.jpg" alt="Table Image"></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="title-row"><center>B.Tech-II-I-R23-Regular-December-2024</center></td>
-                </tr>
-                <tr class="form-row">
-                    <th>Department</th>
-                    <td colspan="3">
-                        <select name="department1" id="department1" required>
-                            <option value="">-- Select Department here --</option>
-                            <option value="CE">Civil Engineering (CE)</option>
-                            <option value="EEE">Electrical & Electronics Engineering (EEE)</option>
-                            <option value="ME">Mechanical Engineering (MECH)</option>
-                            <option value="ECE">Electronics & Communication Engineering (ECE)</option>
-                            <option value="CSE">Computer Science & Engineering (CSE)</option>
-                            <option value="CSE-AI">Computer Science & Engineering - Artificial Intelligence (CSE-AI)</option>
-                            <option value="CSE-DS">Computer Science & Engineering - Data Science (CSE-DS)</option>
-                            <option value="CSE-CS">Computer Science & Engineering - Cyber Security (CSE-CS)</option>
-                            <option value="CSE-NW">Computer Science & Engineering - Networks (CSE-Networks)</option>
-                            <option value="CSE-AI&ML">Computer Science & Engineering - Artificial Intelligence & Machine Learning (CSE-AI & ML)</option>
-                            <option value="CSE-IOT">Computer Science & Engineering - IOT (CSE-IOT)</option>
-                            <option value="CST">Computer Science & Technology (CST)</option>
-                            <option value="CST-IT">Computer Science & Information Technology (CS-IT)</option>
-                            <option value="IT">Information Technology (IT)</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="form-row">
-                    <th>Roll Number</th>
-                    <td>
-                        <input type="text" id="usn" name="usn" placeholder="rollnumber" required>
-                    </td>
-                    <th>Date of Birth</th>
-                    <td>
-                        <input type="date" id="dateofbirth" name="dateofbirth" required>
-                    </td>
-                </tr>
-                <tr class="button-row">
-                    <td colspan="4">
-                        <form method="post" action="myresultug?resultid=B.Tech-II-I-R23-Regular-December-2024">
-                            <input type="submit" value="Search">
-                            <input type="reset" value="Reset" onclick="resetForm()">
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <footer>
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="4" class="footer-row">
-                            Hosted by MITS_InstituteDatabaseSystem@PAARC
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </footer>
-    </div>
+    <table>
+    <tbody><tr>
+        <!-- <td colspan="4" class="image-row" style="text-align: center;"><img src="bg1.jpg" alt="Table Image" style="max-width:100%;height:60px;"></td> -->
+        <td colspan="4" class="image-row" style="text-align: center;"><img src="bg1.jpg" alt="Table Image" style="width:100%;height:auto;"></td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align: center; font-size: 18px; font-weight: bold; color: #357EC7;"><center>B.Tech-III-I-R23-Regular-December-2025</center></td>    </tr>
 
+    <form method="post" align="Left" action="myresultug?resultid=B.Tech-III-I-R23-Regular-December-2025"></form>
+        <tr>
+            <th>Department</th>
+                <td colspan="3">
+                    <select name="department1" id="department1" style="width:630px; height:40px; font-family: Georgia;" required="">
+                        <option value="">-- Select Department here --</option>
+                        <option value="CE">Civil Engineering (CE)</option>
+                        <option value="EEE">Electrical & Electronics Engineering (EEE)</option>
+                        <option value="ME">Mechanical Engineering (MECH)</option>
+                        <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+                        <option value="CSE">Computer Science & Engineering (CSE)</option>
+                        <option value="CSE-AI">Computer Science & Engineering - Artificial Intelligence (CSE-AI)</option>
+                        <option value="CSE-DS">Computer Science & Engineering - Data Science (CSE-DS)</option>
+                        <option value="CSE-CS">Computer Science & Engineering - Cyber Security (CSE-CS)</option>
+                        <option value="CSE-NW">Computer Science & Engineering - Networks (CSE-Networks)</option>
+                        <option value="CSE-AI&ML">Computer Science & Engineering - Artificial Intelligence & Machine Learning (CSE-AI & ML)</option>
+                        <option value="CSE-IOT">Computer Science & Engineering - IOT (CSE-IOT)</option>
+                        <option value="CST">Computer Science & Technology (CST)</option>
+                        <option value="CST-IT">Computer Science & Information Technology (CS-IT)</option>
+                        <option value="IT">Information Technology (IT)</option>
+                        <!-- <option value="MBA">Master of Business Administration (MBA)</option>
+                        <option value="MCA.">Master of Computer Applications (MCA)</option> -->
+                    </select>
+                </td>
+        </tr>
+        <tr>
+            <th><label for="usn">Roll Number:</label></th>
+            <td><input type="text" id="usn" name="usn" style="width:245px; height:30px; font-family: 'Poppins';" placeholder="rollnumber" required="">
+            </td><th>Date of Birth:</th>
+            <td><input type="date" id="dateofbirth" style="width:245px; height:30px; font-family: 'Poppins';" name="dateofbirth" placeholder="dd-mm-yyyy (e.g., 20-04-2000)" required=""></td>
+            <!-- <td><input type="text" id="dateofbirth" style="width:245px; height:30px; font-family: 'Poppins';" name="dateofbirth" placeholder="yyyy-mm-dd (e.g., 2000-04-20)" required></td> -->
+            <!-- <td><input type="date" id="dateofbirth" style="width:245px; height:30px; font-family: 'Poppins';" name="dateofbirth" required></td> -->    
+        </tr>
+    <tr>
+        <td colspan="4">
+            <div style="text-align: right;" margin-right="20px">
+                <input type="submit" style="width:100px; height: 30px; font-family: 'Poppins';" value="Search">
+                <input type="reset" style="width:100px; height: 30px; font-family: 'Poppins';" margin-right:="" 40px;"="" value="Reset" id="resetall" name="resetall" onclick="resetForm()">
+            </div>
+        </td>
+    </tr>
+    
     <script>
-        function resetForm() {
-            document.getElementById('usn').value = '';
-            document.getElementById('dateofbirth').value = '';
-            document.getElementById('department1').value = '';
-        }
-    </script>
-</body>
-</html>
+    function resetForm() {
+        document.getElementById('rollnumber').value = '';
+        document.getElementById('dateofbirth').value = '';
+        document.getElementById('department1').value = '';
+    }
+</script>
+
+    </tbody></table>
+<footer>
+    <table style="width: 50%; color: #0000A5; background-color: #C2DFFF;">
+        <tbody><tr>
+            <td colspan="4" style="font-size: 14px; height: 12px; text-align: center;" class="footer-row">
+                Hosted by MITS_InstituteDatabaseSystem@PAARC
+            </td>
+        </tr>
+    </tbody></table>
+</footer>
+
+
+</body></html>
